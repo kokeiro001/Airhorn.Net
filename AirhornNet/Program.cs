@@ -1,12 +1,8 @@
-﻿using System;
-
-namespace AirhornNet
+﻿namespace AirhornNet
 {
     class Program
     {
         static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+            => new Airhorn().RunAndBlockAsync().GetAwaiter().GetResult();
     }
 }
