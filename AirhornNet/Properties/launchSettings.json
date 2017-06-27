@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "AirhornNet": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "BotUserToken": "your bot user token"
+      }
+    }
+  }
+}

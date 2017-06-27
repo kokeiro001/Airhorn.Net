@@ -16,8 +16,6 @@ namespace AirhornNet
 {
     class Airhorn
     {
-        static readonly string BotUserToken = @"<your bot token>";
-
         DiscordSocketClient discordSocketClient;
         ILog log = LogManager.GetLogger(typeof(Airhorn));
 
@@ -35,10 +33,13 @@ namespace AirhornNet
 
             try
             {
+
+
                 await InitCommands();
 
                 // ボットとしてログインする
-                await discordSocketClient.LoginAsync(TokenType.Bot, BotUserToken);
+                var botUserToken = Environment.GetEnvironmentVariable("BotUserToken") ?? throw new Exception("empty BotUserToken."); // TODO: 適切な例外型を使う
+                await discordSocketClient.LoginAsync(TokenType.Bot, botUserToken);
                 await discordSocketClient.StartAsync();
 
                 // ずっと待つ
